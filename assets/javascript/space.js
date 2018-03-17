@@ -73,7 +73,7 @@ $.getJSON(fullurl, function(data) {
 if (data.status === "ZERO_RESULTS") {
     $("#cityconvert").html("Currently Over a Remote Area")
 } else {
-    $("#cityconvert").html("Currently Over:" +data.results.formatted_address)
+    $("#cityconvert").html("Currently Over: " +data.results[0].formatted_address)
 }
 });
 });
