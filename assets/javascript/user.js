@@ -19,7 +19,7 @@ window.onload = function() {
       console.log(uid)
       var providerData = user.providerData;
       console.log(providerData)
-document.getElementById('userinfo').textContent = displayName + email + emailVerified + "<img src="+photoURL+">"
+document.getElementById('userinfo').textContent = displayName + email + emailVerified + "<img src='"+photoURL+"'>"
       // ...
     } else {
       // User is signed out.

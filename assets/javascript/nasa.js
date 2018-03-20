@@ -1,4 +1,4 @@
-var url = "https://api.nasa.gov/planetary/apod?api_key=z885ogKVjU8Rs3eOOlDNmgPn077x48SOwi4szdmg";
+var url = "https://cors-anywhere.herokuapp.com/https://api.nasa.gov/planetary/apod?api_key=z885ogKVjU8Rs3eOOlDNmgPn077x48SOwi4szdmg";
 
 // build up your div
 
@@ -15,9 +15,10 @@ wrapper.append(copyRightP)
 wrapper.append(title)
 wrapper.append(explP)
 
-$('place-holder-nasa').on("click", function (event) {
+$('#place-holder-nasa').on("click", function (event) {
+    event.preventDefault();
     apiCall()
-    $('global-card-placeholder').append(wrapper)
+    $('#global-card-placeholder').append(wrapper)
 
 
 })
@@ -47,3 +48,25 @@ function apiCall() {
         }
     })
 }
+
+// function apiCall() {
+// $.getJSON("https://cors-anywhere.herokuapp.com/https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY", function(result) {
+//     console.log(result)
+//     if ("copyright" in result) {
+//         $("#copyright").text("Image Credits: " + result.copyright);
+//     } else {
+//         $("#copyright").text("Image Credits: " + "Public Domain");
+//     }
+
+//     if (result.media_type == "video") {
+//         $("#apod_img_id").css("display", "none");
+//         $("#apod_vid_id").attr("src", result.url);
+//     } else {
+//         $("#apod_vid_id").css("display", "none");
+//         $("#apod_img_id").attr("src", result.url);
+//     }
+//     $("#returnObject").text(JSON.stringify(result, null, 4));
+//     $("#apod_explaination").text(result.explanation);
+//     $("#apod_title").text(result.title);
+// });
+// }
