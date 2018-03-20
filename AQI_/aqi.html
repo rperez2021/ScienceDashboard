@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>AQ API test</title>
+</head>
+<body>
+
+  <!-- City Select Box -->
+  <form id="city-form">
+
+    <!-- Label for Text Box -->
+    <label for="city-input">Check San Diego's Air Quality </label>
+
+    <!-- Text Input Box -input type="text" id="city-input"><br>
+
+    <!-- Submit Button -->
+    <input id="select-city" type="submit" value="GO!">
+  </form>
+
+  <!-- city Information -->
+  <div id="city-div"></div>
+
+  <!--image div-->
+  <div id = "basicinfo-div">
+    <img id = "chartforAQI" src = "imagesAQI/AQI_Values.png" alt= "AQI Chart">
+    <a href="https://airnow.gov/index.cfm?action=aqi_brochure.index" title ="Visit EPA website to see Air Quality Index guide" target ="_blank">Air Quality Index Health Guide</a>
+  </div>
+
+  
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="app.js"></script>
