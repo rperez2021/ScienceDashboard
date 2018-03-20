@@ -24,7 +24,7 @@ function getAQ (){
     var PollutantInfo = $("<p>").text("Pollutant Info: p2: ugm3, (pm2.5), p1: ugm3, (pm10), o3: ppb, (Ozone O3), n2: ppb, (Nitrogen dioxide NO2)s2: ppb, (Sulfur dioxide SO2),co: ppm (Carbon monoxide CO)");
     var ForecastHead = $("<h3>").text("Weather Forecast:" + " " ) 
     var WeatherForecast = $("<p>").text("Temperature:" + " " + response.data.current.weather.tp  + "°C" +  " " + "Humidity:" + " " + response.data.current.weather.hu + "%")  
-    var AQIchart = $("<img>").html("src", "imagesAQI/AQI_Values.png"); 
+    var AQIchart = $("<img>").html("src", "assets/images/AQI_Values.png"); 
 
 
     $("#city-div").append(city, airQualityIndex, mainPollutant, PollutantInfo, ForecastHead, WeatherForecast)

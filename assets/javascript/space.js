@@ -8,7 +8,7 @@ var longitude;
     //Leaflet Map Setup
     var mymap = L.map('mapid').setView([0,0], 2);
     function moveISS () {
-        $.getJSON('https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-now.json?callback=?', function(data) {
+        $.getJSON('https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-now.json', function(data) {
             var lat = data['iss_position']['latitude'];
             var lon = data['iss_position']['longitude'];
     
