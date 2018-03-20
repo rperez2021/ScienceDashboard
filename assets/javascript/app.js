@@ -6,8 +6,7 @@ var connectedRef = database.ref(".info/connected");
 var users = database.ref("/users/");
 
 
-$(document).ready(function (userId, name, email, imageUrl) {
-    writeUserData()
+$(document).ready(function () {
     $("#spacecard").hide()
     $("#earthquakecard").hide()
     $("#aiqcard").hide()
@@ -33,17 +32,19 @@ $('#options').on("click", ".form-check-input", function (event) {
 
 // save the user's profile into Firebase so we can list users,
 // use them in Security and Firebase Rules, and show profiles
-function writeUserData(userId, name, email, imageUrl) {
-    firebase.database().ref('users/' + userId).set({
-      username: name,
-      email: email
-      //some more user data
-    });
-  }
+// function writeUserData(userId, name, email, imageUrl) {
+//     firebase.database().ref('users/' + userId).set({
+//       username: name,
+//       email: email
+//       //some more user data
+//     });
+//   }
 
-  //Get the current userID
-var userId = firebase.auth().currentUser.uid;
-//Get the user data
-return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
-    //Do something with your user data located in snapshot
-});
+//   function getuserID(){
+//   //Get the current userID
+// var userId = firebase.auth().currentUser.uid;
+// //Get the user data
+// return firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+//     //Do something with your user data located in snapshot
+// });
+//   }
