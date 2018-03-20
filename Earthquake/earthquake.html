@@ -1,45 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+
+    <title>Earthquake</title>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
-</head>
-<body>
-
-    <div class= "container"></div>
-    <h1>Earthquake Catalog</h1>
-
-    <div id= "info"></div>
-    
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
 
-    $.getJSON('https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2018-03-16&endtime=2018-03-17', function(data) {
-        
-        for (var i =0; i < 5; i++){
-            var earthquake = data.features[i];
-            var location = $("<h3>").text("Location: " + data.features[i].properties.place);
-            var magnitude = $("<p>").text("Magnitude 'Richter scale': " + data.features[i].properties.mag);
-            var time = $("<p>").text("Time: " + data.features[i].properties.time);
-            var t = data.features[i].properties.time
-            var tPretty = moment(t).format("LLL");
-            var moreInfo = $("<p>").text("");
-            moreInfo.append("<a href = '" + data.features[i].properties.url + "'>Click here for more information</a>");
-                $("#info").append(location, magnitude, tPretty, moreInfo);
+    <script type="text/javascript" src="assets/earthquake.js"></script>
 
-                
-            // console.log(tPretty);
-            console.log(data.features[i]);
-        }
+</head>
 
-    });
+<body>
 
+    <div class ="container"></div>
+    <h1>Earthquake Catalog: Most recent</h1>
 
-    </script>
+    <div id ="info"></div>
+
+    <div class ="container-2"></div>
+    <h1>Earthquake Catalog: Last Significant</h1>
+
+    <div id ="info-2"></div>
 
 </body>
+
 </html>
