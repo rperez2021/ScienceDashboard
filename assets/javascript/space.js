@@ -8,7 +8,7 @@ var longitude;
     //Leaflet Map Setup
     var mymap = L.map('mapid').setView([0,0], 2);
     function moveISS () {
-        $.getJSON('http://api.open-notify.org/iss-now.json?callback=?', function(data) {
+        $.getJSON('api.open-notify.org/iss-now.json?callback=?', function(data) {
             var lat = data['iss_position']['latitude'];
             var lon = data['iss_position']['longitude'];
     
@@ -46,7 +46,7 @@ var longitude;
     moveISS();
 
     //Number of Austronauts in Space
-$.getJSON('http://api.open-notify.org/astros.json', function(data) {
+$.getJSON('api.open-notify.org/astros.json', function(data) {
     var number = data['number'];
     $('#spacepeeps').html("<h3>There are currently " + number + " people in space:</h3>");
 
@@ -56,7 +56,7 @@ $.getJSON('http://api.open-notify.org/astros.json', function(data) {
 });
 
 //Current Location of ISS
-$.getJSON('http://api.open-notify.org/iss-now.json', function(data) {
+$.getJSON('api.open-notify.org/iss-now.json', function(data) {
     // obj = JSON.parse(data)
     var latitude = data["iss_position"].latitude;
     var longitude = data["iss_position"].longitude;
