@@ -5,7 +5,7 @@ function getAQ (){
     var settings = {
         "async": true,
         "crossDomain": true,
-        "url": "http://api.airvisual.com/v2/city?city=San%20Diego&state=California&country=USA&key=8KdzpGueiSdotpHm9",
+        "url": "https://cors-anywhere.herokuapp.com/http://api.airvisual.com/v2/city?city=San%20Diego&state=California&country=USA&key=8KdzpGueiSdotpHm9",
         "method": "GET",
         "headers": {}
     }
