@@ -150,8 +150,10 @@ function toggleSignIn() {
   }
   window.onload = function() {
     initApp();
+    userdata();
   };
 
+  function userdata(){
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
@@ -175,4 +177,4 @@ document.getElementById('userinfo').textContent = displayName + email + emailVer
       // ...
     }
   });
-  
+}
