@@ -30,7 +30,7 @@ window.onload = function() {
   });
 }
 
-$('button').on("click", "#signout", function (event) {
+$('#signout').on("click", function (event) {
   event.preventDefault()
   signout()
 });
