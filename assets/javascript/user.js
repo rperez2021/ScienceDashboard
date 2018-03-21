@@ -19,9 +19,9 @@ window.onload = function() {
       console.log(uid)
       var providerData = user.providerData;
       console.log(providerData)
-      $('#username').html = "Welcome! "+ displayName;
-      $('#useremail').html = email;
-      $('#userphoto').html = "<img src="+photoURL+" class='rounded-circle'>"
+      $('#username').text = "Welcome! "+ displayName;
+      $('#useremail').text = email;
+      $('#userphoto').text = "<img src="+photoURL+" class='rounded-circle'>"
       // ...
     } else {
       // User is signed out.
