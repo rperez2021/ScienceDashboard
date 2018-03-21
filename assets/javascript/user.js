@@ -21,12 +21,20 @@ window.onload = function() {
       var providerData = user.providerData;
       console.log(providerData)
       $("#username").text("Welcome! "+ displayName);
-      $("#useremail").text(email);
-      $("#userphoto").html("<img src='"+photoURL+"' class='rounded-circle' width='20' height='20'>");
+      $("#userphoto").html("<img src='"+photoURL+"' class='rounded-circle' width='40' height='40'>");
       // ...
     } else {
       $("#username").text("User is not logged in");
     
     }
   });
+}
+
+$('#signout').on("click", ".btn-success", function (event) {
+  event.preventDefault()
+  signout()
+});
+
+function signout(){
+  firebase.auth().signOut()
 }
