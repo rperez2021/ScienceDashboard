@@ -27,6 +27,7 @@ $('#options').on("click", ".form-check-input", function (event) {
         case "potd":
         $("#potdcard").toggle();
     }
+    window.dispatchEvent(new Event('resize')); 
 });
 });
 
