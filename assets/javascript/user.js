@@ -20,12 +20,12 @@ window.onload = function() {
       console.log(uid)
       var providerData = user.providerData;
       console.log(providerData)
-      $("#username").text = "Welcome! "+ displayName;
-      $("#useremail").text = email;
-      $("#userphoto").text = "<img src="+photoURL+" class='rounded-circle'>"
+      $("#username").text("Welcome! "+ displayName);
+      $("#useremail").text(email);
+      $("#userphoto").text("<img src="+photoURL+" class='rounded-circle'>");
       // ...
     } else {
-      $("#username").text = "User is not logged in";
+      $("#username").text("User is not logged in");
     
     }
   });
