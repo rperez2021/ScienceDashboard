@@ -29,3 +29,12 @@ window.onload = function() {
     }
   });
 }
+
+$('#signout').on("click", ".btn-success", function (event) {
+  event.preventDefault()
+  signout()
+});
+
+function signout(){
+  firebase.auth().signOut()
+}
