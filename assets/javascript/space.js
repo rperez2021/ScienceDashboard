@@ -29,7 +29,7 @@ $(document).ready(function () {
 
 
     function moveISS() {
-        $.getJSON('http://api.open-notify.org/iss-now.json?callback=?', function (data) {
+        $.getJSON('https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-now.json', function (data) {
             var lat = data['iss_position']['latitude'];
             var lon = data['iss_position']['longitude'];
 
@@ -47,13 +47,13 @@ $(document).ready(function () {
                 }
             });
         });
-        setTimeout(moveISS, 5000);
+        setTimeout(moveISS, 10000);
     }
 
     moveISS();
 
     //Number of Austronauts in Space
-    $.getJSON('http://api.open-notify.org/astros.json?callback=?', function (data) {
+    $.getJSON('https://cors-anywhere.herokuapp.com/http://api.open-notify.org/astros.json', function (data) {
         var number = data['number'];
         $('#spacepeeps').html("<h3>There are currently " + number + " people in space:</h3>");
 
