@@ -1,5 +1,8 @@
 window.onload = function() {
     userdata();
+    $('#username').text = "Welcome! "+ displayName;
+    $('#useremail').text = email;
+    $('#userphoto').text = "<img src="+photoURL+" class='rounded-circle'>"
   };
 
   function userdata(){
@@ -19,9 +22,7 @@ window.onload = function() {
       console.log(uid)
       var providerData = user.providerData;
       console.log(providerData)
-      $('#username').text = "Welcome! "+ displayName;
-      $('#useremail').text = email;
-      $('#userphoto').text = "<img src="+photoURL+" class='rounded-circle'>"
+     
       // ...
     } else {
       // User is signed out.
