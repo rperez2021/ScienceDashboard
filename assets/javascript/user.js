@@ -22,7 +22,7 @@ window.onload = function() {
       console.log(providerData)
       $("#username").text("Welcome! "+ displayName);
       $("#useremail").text(email);
-      $("#userphoto").html("<img src='"+photoURL+"' class='rounded-circle' width='20' height='20');
+      $("#userphoto").html("<img src='"+photoURL+"' class='rounded-circle' width='20' height='20'");
       // ...
     } else {
       $("#username").text("User is not logged in");
