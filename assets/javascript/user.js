@@ -37,4 +37,5 @@ $('#signout').on("click", ".btn-success", function (event) {
 
 function signout(){
   firebase.auth().signOut()
+  console.log("signout fired")
 }
