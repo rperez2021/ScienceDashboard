@@ -22,7 +22,9 @@ window.onload = function() {
       // User is signed in.
       var displayName = user.displayName;
       //This is jacked up
-      database.ref().child("/users/user").set(user.displayName);
+      database.ref().child("/users/user"+user.uid).set(user.displayName);
+      database.ref().child("/users/user"+user.uid).set(user.email);
+      database.ref().child("/users/user"+user.uid).set(user.photoURL);
       console.log(displayName)
       var email = user.email;
       console.log(email)
@@ -35,7 +37,7 @@ window.onload = function() {
       console.log(uid)
       var providerData = user.providerData;
       console.log(providerData)
-      writeUserData();
+
       $("#username").text("Welcome! "+ displayName);
       $("#userphoto").html("<img src='"+photoURL+"' class='rounded-circle' width='40' height='40'>");
       // ...
@@ -56,10 +58,10 @@ function signout(){
   console.log("signout fired")
 }
 
-function writeUserData(uid, displayName, email, photoURL) {
-  firebase.database().ref('users/' + uid).set({
-    username: user.displayName,
-    email: user.email,
-    profile_picture : user.photoURL
-  })
-};
+// function writeUserData(uid, displayName, email, photoURL) {
+//   firebase.database().ref('users/' + uid).set({
+//     username: user.displayName,
+//     email: user.email,
+//     profile_picture : user.photoURL
+//   })
+// };
