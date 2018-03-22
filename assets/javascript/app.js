@@ -18,6 +18,7 @@ $('#options').on("click", ".form-check-input", function (event) {
         case "space":
         var space = $("#spacecard").toggle("slow", function(){
             window.dispatchEvent(new Event('resize'))})
+           
             // database.ref().child("/users/user" + user.uid).update({
             //     display:
             //       {
@@ -35,7 +36,11 @@ $('#options').on("click", ".form-check-input", function (event) {
         var potd = $("#potdcard").toggle("slow");
         break;
     }
+    console.log("is it visible?"+$("#spacecard").is(":visible"))
+    console.log("is it hidden?"+$("#spacecard").is(":hidden")) 
 });
+console.log("is it visible?"+$("#spacecard").is(":visible"))
+console.log("is it hidden?"+$("#spacecard").is(":hidden"))
 });
 
 // save the user's profile into Firebase so we can list users,
