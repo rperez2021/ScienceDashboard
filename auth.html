@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
 <!-- FontAwesome -->
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l" crossorigin="anonymous"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
@@ -30,11 +31,10 @@
 <script type="text/javascript">
     // FirebaseUI config.
     var uiConfig = {
-      signInSuccessUrl: 'https://rperez2021.github.io/ScienceDashboard/space.html',
+      signInSuccessUrl: 'https://rperez2021.github.io/ScienceDashboard/index.html',
       signInOptions: [
         // Leave the lines as is for the providers you want to offer your users.
         firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID,
         firebase.auth.GithubAuthProvider.PROVIDER_ID,
       ],
       // Terms of service url.
@@ -51,8 +51,39 @@
 <body>
         <!-- The surrounding HTML is left untouched by FirebaseUI.
              Your app may use that space for branding, controls and other customizations.-->
-        <h1>Welcome to My Awesome App</h1>
-        <div id="firebaseui-auth-container"></div>
+             <nav class="navbar navbar-dark bg-dark">
+              <!-- Navbar content -->
+              <h3>Science Dashboard</h3>
+              <form class="form-inline">
+              <a href="auth.html"><button type="button" class="btn btn-success m-1">Sign In</button></a>
+              <button type="button" class="btn btn-success m-1">Sign Out</button>
+              </form>
+              
+          </nav>
+          <div class="container-fluid">
+              <div class="row">
+                  <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+                      <div class="sidebar-sticky" id="options">
+                          <ul class="nav flex-column">
+                              
+                          </ul>
+                          </div>
+                  </nav>
+                  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+      
+                      <div class="card text-center">
+                          <div class="card-header">
+                            Welcome to Science Dashboard!
+                          </div>
+                          <div class="card-body">
+                              <h5 class="card-title"><div id="firebaseui-auth-container"></div></h5>
+                              <p class="card-text">Please sign in so we can remember your settings</p>
+      
+                          </div>
+                          <div class="card-footer text-muted"></div>
+      
+                      </div>
+        
     <!-- Optional JavaScript -->
     
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

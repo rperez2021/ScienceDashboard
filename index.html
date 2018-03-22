@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <!-- Leafleft CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+        crossorigin="" />
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js" integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+        crossorigin=""></script>
+    <!-- Local Leafleft CSS to Display Map -->
+    <link rel="stylesheet" href="assets/css/space.css">
+    <!-- FontAwesome -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c"
+        crossorigin="anonymous"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
+ 
+    <title>Science Dashboard</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark text-light">
+        <!-- Navbar content -->
+        <h3 class="text-light">Science Dashboard</h3>
+        <form class="form-inline">
+        <div id="userinfo"><p class="text-light" id="username"></p><p class="text-light" id="useremail"></p></div>
+        <div id="userphoto"></div>
+        <a href="auth.html"><button type="button" class="btn btn-success m-1">Sign In</button></a>
+        <button type="button" class="btn btn-success m-1" id="signout">Sign Out</button>
+        </form>
+        
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-2 d-none d-block bg-light sidebar">
+                <div class="sidebar-sticky" id="options">
+                    <ul class="nav flex-column">
+                        <li>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="space" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Space
+                                </label>
+                        </li>
+
+                        <li>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="earthquake" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Earthquakes
+                                </label>
+                        </li>
+
+                        <li>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="airpollution" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    Air Pollution
+                                </label>
+                        </li>
+
+                        <li>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="potd" id="defaultCheck1">
+                                <label class="form-check-label" for="defaultCheck1">
+                                    NASA Photo of the Day
+                                </label>
+                        </li>
+                    </ul>
+                    </div>
+            </nav>
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+
+                <div class="card text-center">
+                    <div class="card-header">
+                        Featured
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Welcome to Science Dashboard!</h5>
+                        <p class="card-text">Click the sign in button at the top. Check off the boxes that interest you!</p>
+
+                    </div>
+                    <div class="card-footer text-muted"></div>
+
+                </div>
+
+                <div class="card" id="spacecard">
+                    <img>
+                    <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div id="spacepeeps"></div>
+                                    <div id="astronames"></div>
+                                </div>
+                                <div class="col-6">
+                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 mt-2">
+                                    <h3>Currently the ISS Is Located: </h3>
+                                    <p id="cityconvert"></p>
+                                    <p id="latlong">Blah</p>
+                                    <div id="mapid"></div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+                            <div class="card" id="earthquakecard">
+                                <img>
+                                <div class="card-body"> <h1>Earthquake Catalog: Most recent</h1>
+
+                                    <div id ="info"></div>
+                                
+                                    <div class ="container-2"></div>
+                                    <h1>Earthquake Catalog: Last Significant</h1>
+                                
+                                    <div id ="info-2"></div> </div>
+                            </div>
+
+                            <div class="card" id="aiqcard">
+                                <img>
+                                <div class="card-body"><!-- City Select Box -->
+                                    <form id="city-form">
+                                  
+                                      <!-- Label for Text Box -->
+                                      <label for="city-input">Check San Diego's Air Quality </label>
+                                  
+                                      <!-- Text Input Box -input type="text" id="city-input"><br>
+                                  
+                                      <!-- Submit Button -->
+                                      <input id="select-city" type="submit" value="GO!">
+                                    </form>
+                                  
+                                    <!-- city Information -->
+                                    <div id="city-div"></div>
+                                  
+                                    <!--image div-->
+                                    <div id = "basicinfo-div">
+                                      <img id = "chartforAQI" src = "assets/images/AQI_Values.png" alt= "AQI Chart">
+                                      <a href="https://airnow.gov/index.cfm?action=aqi_brochure.index" title ="Visit EPA website to see Air Quality Index guide" target ="_blank">Air Quality Index Health Guide</a>
+                                    </div></div>
+                            </div>
+
+                            <div class="card" id="potdcard">
+                                <img>
+                                <div class="card-body"><input id="place-holder-nasa" type="submit" value="GO!">
+                                <div id="global-card-placeholder"></div>
+                                </div>
+                            </div>
+
+
+
+
+            </main>
+            </div>
+            <script src="https://www.gstatic.com/firebasejs/4.11.0/firebase.js"></script>
+            <script>
+                // Initialize Firebase
+                var config = {
+                    apiKey: "AIzaSyDNzsvIH47NcvWr5EwY4tr7kDX-xPJ6prU",
+                    authDomain: "firstproject-2daa8.firebaseapp.com",
+                    databaseURL: "https://firstproject-2daa8.firebaseio.com",
+                    projectId: "firstproject-2daa8",
+                    storageBucket: "firstproject-2daa8.appspot.com",
+                    messagingSenderId: "182778372625"
+                };
+                firebase.initializeApp(config);
+            </script>
+            <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="assets/javascript/app.js"></script>
+            <script src="assets/javascript/nasa.js"></script>
+            <script src="assets/javascript/space.js"></script>
+            <script src="assets/javascript/user.js"></script>
+            <script src="assets/javascript/earthquake.js" type="text/javascript"></script>
+            <script src="assets/javascript/aqi.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+</body>
+
+</html>
