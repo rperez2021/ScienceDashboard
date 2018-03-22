@@ -29,7 +29,7 @@ function userdata() {
         display:
           {
             space: ($("#spacecard").is(":visible")),
-            earthquake: false,
+            earthquake: true,
             airpollution: false,
             potd: false
           }
