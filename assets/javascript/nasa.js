@@ -9,19 +9,21 @@ var copyRightP = $('<p id="copyright"></p>')
 var title = $('<h3 id="apod_title"></h3>')
 var explP = $(' <p id="apod_explaination"></p>')
 
+
+apiCall()
 wrapper.append(img)
 wrapper.append(vid)
 wrapper.append(copyRightP)
 wrapper.append(title)
 wrapper.append(explP)
 
-$('#place-holder-nasa').on("click", function (event) {
-    event.preventDefault();
-    apiCall()
-    $('#global-card-placeholder').append(wrapper)
+// $('#place-holder-nasa').on("click", function (event) {
+//     event.preventDefault();
+
+$('#potd-card').append(wrapper)
 
 
-})
+// })
 
 
 
