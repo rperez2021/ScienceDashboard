@@ -22,9 +22,14 @@ window.onload = function() {
       // User is signed in.
       var displayName = user.displayName;
       //This is jacked up
-      database.ref().child("/users/user"+user.uid).set(user.displayName);
-      database.ref().child("/users/user"+user.uid).set(user.email);
-      database.ref().child("/users/user"+user.uid).set(user.photoURL);
+      database.ref().child("/users/user"+user.uid).set({
+        user: user.displayName, 
+        email: user.email, 
+        photo: user.photoURL, 
+        space: false, 
+        earthquake: false, 
+        airpollution: false, 
+        potd: false });
       console.log(displayName)
       var email = user.email;
       console.log(email)
