@@ -28,7 +28,7 @@ function userdata() {
         photo: user.photoURL,
         display:
           {
-            space: false,
+            space: ($("#spacecard").is(":visible")),
             earthquake: false,
             airpollution: false,
             potd: false
