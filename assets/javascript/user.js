@@ -34,6 +34,7 @@ window.onload = function() {
       console.log(uid)
       var providerData = user.providerData;
       console.log(providerData)
+      writeUserData();
       $("#username").text("Welcome! "+ displayName);
       $("#userphoto").html("<img src='"+photoURL+"' class='rounded-circle' width='40' height='40'>");
       // ...
@@ -52,4 +53,12 @@ $('#signout').on("click", function (event) {
 function signout(){
   firebase.auth().signOut()
   console.log("signout fired")
+}
+
+function writeUserData(userId, name, email, imageUrl) {
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
 }
