@@ -1,9 +1,7 @@
 
 
 var database = firebase.database();
-var connectionsRef = database.ref("/connections");
-var connectedRef = database.ref(".info/connected");
-var users = database.ref("/users/");
+var userRef = database.ref("/users/");
 
 
 $(document).ready(function () {
@@ -18,19 +16,25 @@ $('#options').on("click", ".form-check-input", function (event) {
     console.log(option)
     switch(option) {
         case "space":
-        $("#spacecard").toggle();
+        var space = $("#spacecard").toggle("slow", function(){
+            window.dispatchEvent(new Event('resize'))})
+            database.ref().child("/users/user" + user.uid).update({
+                display:
+                  {
+                    space: ($("#spacecard").is(":visible")),
+                  } 
+              });
         break;
         case "earthquake":
-        $("#earthquakecard").toggle();
+        var earthquake = $("#earthquakecard").toggle("slow");
         break;
         case "airpollution":
-        $("#aiqcard").toggle();
+        var airpollution = $("#aiqcard").toggle("slow");
         break;
         case "potd":
-        $("#potdcard").toggle();
+        var potd = $("#potdcard").toggle("slow");
         break;
     }
-    window.dispatchEvent(new Event('resize')); 
 });
 });
 
