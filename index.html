@@ -15,6 +15,7 @@
         crossorigin=""></script>
     <!-- Local Leafleft CSS to Display Map -->
     <link rel="stylesheet" href="assets/css/space.css">
+    <link rel="stylesheet" href="assets/css/frontpage.css"
     <!-- FontAwesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
         crossorigin="anonymous"></script>
@@ -22,25 +23,22 @@
         crossorigin="anonymous"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.21.0/moment.min.js"></script>
- 
     <title>Science Dashboard</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-dark text-light">
+    <nav class="navbar navbar-dark bg" id ="pageHeading">
         <!-- Navbar content -->
-        <h3 class="text-light">Science Dashboard</h3>
-        <form class="form-inline">
-        <div id="userinfo"><p class="text-light" id="username"></p><p class="text-light" id="useremail"></p></div>
-        <div id="userphoto"></div>
-        <a href="auth.html"><button type="button" class="btn btn-success m-1">Sign In</button></a>
-        <button type="button" class="btn btn-success m-1" id="signout">Sign Out</button>
-        </form>
+        <h3 id = "pageTitle">Science Dashboard</h3>
+        <div class="btn-group"  role="group">
+        <a href="auth.html"><button type="button" class="btn btn-outline-light">Sign In</button></a>
+        <button type="button" class="btn btn-outline-light">Sign Out</button>
+        </div>
         
     </nav>
     <div class="container-fluid">
         <div class="row">
-            <nav class="col-md-2 d-none d-block bg-light sidebar">
+            <nav class="col-md-2 d-block bg sidebar" id = "fullSideBar">
                 <div class="sidebar-sticky" id="options">
                     <ul class="nav flex-column">
                         <li>
@@ -79,16 +77,16 @@
             </nav>
             <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
 
-                <div class="card text-center">
+                <div class="card text-center"  id = "opening">
                     <div class="card-header">
-                        Featured
+                        
                     </div>
                     <div class="card-body">
                         <h5 class="card-title">Welcome to Science Dashboard!</h5>
                         <p class="card-text">Click the sign in button at the top. Check off the boxes that interest you!</p>
 
                     </div>
-                    <div class="card-footer text-muted"></div>
+                    <div class="card-footer"></div>
 
                 </div>
 
@@ -101,7 +99,7 @@
                                     <div id="astronames"></div>
                                 </div>
                                 <div class="col-6">
-                                    
+                                    <div id="userinfo"></div>
                                 </div>
                             </div>
                             <div class="row">

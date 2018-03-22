@@ -22,10 +22,13 @@ $('#options').on("click", ".form-check-input", function (event) {
         break;
         case "earthquake":
         $("#earthquakecard").toggle();
+        break;
         case "airpollution":
         $("#aiqcard").toggle();
+        break;
         case "potd":
         $("#potdcard").toggle();
+        break;
     }
     window.dispatchEvent(new Event('resize')); 
 });
