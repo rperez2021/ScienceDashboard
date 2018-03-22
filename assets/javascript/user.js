@@ -2,12 +2,26 @@ window.onload = function() {
     userdata();
     
   };
+  var database = firebase.database();
+
+  //This is not final probably jacked up
+  var database = firebase.database();
+  var userRef = database.ref("/users/");
+  var user;
+  database.ref("/users/").on("value", function(snapshot) {
+    if (snapshot.child("user").exists()) {
+      console.log("user exists");
+      user = snapshot.val().player1;
+    });
+// This is part of the bad stuff
 
   function userdata(){
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
       var displayName = user.displayName;
+      //This is jacked up
+      database.ref().child("/users/user").set(user.displayName);
       console.log(displayName)
       var email = user.email;
       console.log(email)
