@@ -40,7 +40,7 @@ $(document).ready(function () {
             $("#latlong").html("Latitude: " + lat + " Longtitude: " + lon);
             //Implement Google Reverese Location API
             $.getJSON(fullurl, function (data) {
-                if (data.status === "ZERO_RESULTS") {
+                if (data.status === "ZERO_RESULTS" || data.results[0].formatted_address === undefined) {
                     $("#cityconvert").html("Currently Over a Remote Area")
                 } else {
                     $("#cityconvert").html("Currently Over: " + data.results[0].formatted_address)
