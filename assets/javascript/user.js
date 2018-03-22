@@ -45,7 +45,7 @@ window.onload = function() {
 
       $("#username").text("Welcome! "+ displayName);
       $("#userphoto").html("<img src='"+photoURL+"' class='rounded-circle' width='40' height='40'>");
-      console.log("User " displayName + " Is Signed In")
+      console.log("User " + displayName + " Is Signed In")
     } else {
       $("#username").text("User is not logged in");
     console.log("User is Signed Out")
