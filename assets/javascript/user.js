@@ -12,7 +12,8 @@ window.onload = function() {
     if (snapshot.child("user").exists()) {
       console.log("user exists");
       user = snapshot.val().player1;
-    });
+    };
+  });
 // This is part of the bad stuff
 
   function userdata(){
@@ -60,5 +61,5 @@ function writeUserData(userId, name, email, imageUrl) {
     username: name,
     email: email,
     profile_picture : imageUrl
-  });
-}
+  })
+};
