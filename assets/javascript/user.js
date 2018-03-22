@@ -56,10 +56,10 @@ function signout(){
   console.log("signout fired")
 }
 
-function writeUserData(userId, name, email, imageUrl) {
-  firebase.database().ref('users/' + userId).set({
-    username: name,
-    email: email,
-    profile_picture : imageUrl
+function writeUserData(uid, displayName, email, photoURL) {
+  firebase.database().ref('users/' + uid).set({
+    username: user.displayName,
+    email: user.email,
+    profile_picture : user.photoURL
   })
 };
