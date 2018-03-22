@@ -60,6 +60,16 @@ function userdata() {
 $('#signout').on("click", function (event) {
   event.preventDefault()
   firebase.auth().signOut().then(function () {
+    database.ref().child("/users/user" + user.uid).update({
+      display:
+        {
+          space: ($("#spacecard").is(":visible")),
+          earthquake: ($("#earthquakecard").is(":visible")),
+          airpollution: ($("#aiqcard").is(":visible")),
+          potd: ($("#potdcard").is(":visible"))
+        }
+    });
+
     console.log('Signed Out');
   }, function (error) {
     console.error('Sign Out Error', error);
