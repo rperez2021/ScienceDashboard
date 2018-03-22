@@ -55,13 +55,14 @@ window.onload = function() {
 
 $('#signout').on("click", function (event) {
   event.preventDefault()
-  signout()
+  firebase.auth().signOut().then(function() {
+    console.log('Signed Out');
+  }, function(error) {
+    console.error('Sign Out Error', error);
+  });
 });
 
-function signout(){
-  firebase.auth().signOut()
-  console.log("signout fired")
-}
+
 
 // function writeUserData(uid, displayName, email, photoURL) {
 //   firebase.database().ref('users/' + uid).set({
