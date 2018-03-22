@@ -8,12 +8,12 @@ window.onload = function() {
   var database = firebase.database();
   var userRef = database.ref("/users/");
   var user;
-  database.ref("/users/").on("value", function(snapshot) {
-    if (snapshot.child("user").exists()) {
-      console.log("user exists");
-      user = snapshot.val().player1;
-    };
-  });
+  // database.ref("/users/").on("value", function(snapshot) {
+  //   if (snapshot.child("user").exists()) {
+  //     console.log("user exists");
+  //     user = snapshot.val().player1;
+  //   };
+  // });
 // This is part of the bad stuff
 
   function userdata(){
@@ -45,10 +45,10 @@ window.onload = function() {
 
       $("#username").text("Welcome! "+ displayName);
       $("#userphoto").html("<img src='"+photoURL+"' class='rounded-circle' width='40' height='40'>");
-      // ...
+      console.log("User " displayName + " Is Signed In")
     } else {
       $("#username").text("User is not logged in");
-    
+    console.log("User is Signed Out")
     }
   });
 }
