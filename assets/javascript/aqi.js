@@ -66,8 +66,8 @@ $("#select-city").on("click", function (event) {
     event.preventDefault();
     $("#city-div").empty()
     $("#chart-div").empty()
-    // var city = $("#city-input").val()
-    var city = "san diego"
+     var city = $("#city-choice").val()
+    //var city = "san diego"
     city = scrubber(city)
     if (!city) {
         console.log("User passed in bad input")
