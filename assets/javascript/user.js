@@ -59,7 +59,7 @@ function userdata() {
 
 $('#signout').on("click", function (event) {
   event.preventDefault()
-  firebase.auth().signOut().then(function () {
+  firebase.auth().signOut().then(function (user) {
     database.ref().child("/users/user" + user.uid).update({
       display:
         {
