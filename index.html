@@ -130,16 +130,15 @@
                             <div class="card mb-3" id="aiqcard">
                                 <img>
                                 <div class="card-body"><!-- City Select Box -->
-                                    <form id="city-form">
+                                    <form id="city-form" >
                                   
                                       <!-- Label for Text Box -->
-                                      <label for="city-input">Check San Diego's Air Quality </label>
-                                  
-                                      <!-- Text Input Box -input type="text" id="city-input"><br>
-                                  
-                                      <!-- Submit Button -->
+                                      <h4 for="city-input" class="row" id= "city-label">Enter a California City to Check the Air Quality </h4>
+                                     <div class= "row">
                                       <input class="form-control" type="text" value = "San Diego" id = "city-choice">
-                                      <input id="select-city" type="submit" value="GO!">
+                                      <!-- Submit Button -->
+                                      <input id="select-city" type="button" class="btn btn-outline-light" type="submit" value="GO!">
+                                    </div>
                                     </form>
                                   
                                     <!-- city Information -->
@@ -147,8 +146,12 @@
                                   
                                     <!--image div-->
                                     <div id = "basicinfo-div">
-                                      <img id = "chartforAQI" src = "assets/images/AQI_Values.png" alt= "AQI Chart">
-                                      <a href="https://airnow.gov/index.cfm?action=aqi_brochure.index" title ="Visit EPA website to see Air Quality Index guide" target ="_blank">Air Quality Index Health Guide</a>
+                                        <div class="row"> 
+                                            <img id = "chartforAQI" src = "assets/images/AQI_Values.png" class="img-fluid" alt= "AQI Chart">
+                                        </div>
+                                        <div class="row mt-3"> 
+                                            <a href="https://airnow.gov/index.cfm?action=aqi_brochure.index" title ="Visit EPA website to see Air Quality Index guide" target ="_blank"  class="btn btn-outline-light">Air Quality Index Health Guide</a>
+                                        </div>
                                     </div></div>
                             </div>
 
