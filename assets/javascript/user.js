@@ -82,7 +82,12 @@ function firebaseSave(){
   if ($("#spacecard").toggle(":hidden")) {
     database.ref().child("/users/user" + user.uid).update({
       space: ($("#spacecard").is(":hidden")),
-  })
+  }) 
+  } else if 
+    ($("#spacecard").toggle(":visible")) {
+      database.ref().child("/users/user" + user.uid).update({
+        space: ($("#spacecard").is(":hidden")),
+    })
   }
 }
 
