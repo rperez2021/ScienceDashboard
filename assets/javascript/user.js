@@ -17,17 +17,20 @@ function userdata(user, uid, email, photo, display) {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       console.log(user)
-      // User is signed in.
+      database.ref("/users/" +user.uid).once("value").then(function(snapshot){
       var displayName = user.displayName;
       currentUser.name = user.displayName;
       currentUser.uid = user.uid
       currentUser.display = {}
       if (user.display !== {}){
-      currentUser.display.space = user.display.space;
-      currentUser.display.earthquake = user.display.earthquake;
-      currentUser.display.airpollution = user.display.airpollution;
-      currentUser.display.potd = user.display.potd;
+      currentUser.display.space = snapshot.val().display.space;
+      currentUser.display.earthquake = snapshot.val().display.earthquake;
+      currentUser.display.airpollution = snapshot.val().display.airpollution;
+      currentUser.display.potd = snapshot.val().display.potd;
       }
+      })
+      // User is signed in.
+      
       database.ref().child("/users/" + user.uid).set({
         user: user.displayName,
         email: user.email,
