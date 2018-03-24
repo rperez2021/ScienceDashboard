@@ -63,7 +63,7 @@ function userdata(user, uid, email, photo, display) {
         $("#username").text("User is not logged in");
         console.log("User is Signed Out")
       }
-
+    }
     
     })
     //Trigger Function
