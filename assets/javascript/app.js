@@ -18,13 +18,7 @@ $('#options').on("click", ".btn", function (event) {
         case "space":
         var space = $("#spacecard").toggle("slow", function(){
             window.dispatchEvent(new Event('resize'))})
-           
-            // database.ref().child("/users/user" + user.uid).update({
-            //     display:
-            //       {
-            //         space: ($("#spacecard").is(":visible")),
-            //       } 
-            //   });
+           firebaseSave();
         break;
         case "earthquake":
         var earthquake = $("#earthquakecard").toggle("slow");
