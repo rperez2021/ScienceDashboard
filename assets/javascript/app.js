@@ -1,31 +1,33 @@
-// firebase.database().ref("/users/user" + user.uid).once('value').then(function(snapshot) {
+firebase.database().ref("/users/").on('child_added').then(function(snapshot) {
+ if (snapshot.key === flaguid) {
+     console.log(snapshot.val())
+ }
 
 
 
 
+    // var displayName = snapshot.user.displayName;
 
-//     var displayName = snapshot.user.displayName;
+    //   database.ref().child("/users/user" + user.uid).set({
+    //     user: user.displayName,
+    //     email: user.email,
+    //     photo: user.photoURL,
+    //     display:
+    //       {
+    //         space: false,
+    //         earthquake: false,
+    //         airpollution: false,
+    //         potd: false
+    //       }
+    //   });
+    //   var email = user.email;
+    //   var emailVerified = user.emailVerified;
+    //   var photoURL = user.photoURL;
+    //   var isAnonymous = user.isAnonymous;
+    //   var uid = user.uid;
+    //   var providerData = user.providerData;
 
-//       database.ref().child("/users/user" + user.uid).set({
-//         user: user.displayName,
-//         email: user.email,
-//         photo: user.photoURL,
-//         display:
-//           {
-//             space: false,
-//             earthquake: false,
-//             airpollution: false,
-//             potd: false
-//           }
-//       });
-//       var email = user.email;
-//       var emailVerified = user.emailVerified;
-//       var photoURL = user.photoURL;
-//       var isAnonymous = user.isAnonymous;
-//       var uid = user.uid;
-//       var providerData = user.providerData;
-
-//   });
+  });
 
 
 var database = firebase.database();
