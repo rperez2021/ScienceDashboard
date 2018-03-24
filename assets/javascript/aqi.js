@@ -1,11 +1,12 @@
 var city = "san diego"
 
 function scrubber(input) {
-    console.log(typeof(input))
+    //console.log(typeof(input))
     input.trim()
     input.replace(" ", "%20")
     if (!alpha(input)) {
         return false
+        
     } else {
         return input
     }
@@ -17,7 +18,7 @@ function scrubber(input) {
         if (inputtxt.match(letterNumber)) {
             return true;
         } else {
-            alert("message");
+            console.log("not found");
             return false;
         }
     }
@@ -35,25 +36,30 @@ function getAQ(city) {
         "headers": {}
     }
 
-    //add drop down menu of multiple cities 
-    //based on city selection print response data to page 
+    
 
     $.ajax(settings).done(function (response) {
+       
         console.log(response)
         // console.log(response.data.current.pollution)
         console.log(response.data.city)
 
         var city = $("<h1>").text(response.data.city);
-        var airQualityIndex = $("<h1>").text("City Air Quality Index:" + " " + response.data.current.pollution.aqius);
+        var airQualityIndex = $("<h1>").text("City Air Quality Index Value:" + " " + response.data.current.pollution.aqius);
         var mainPollutant = $("<h2>").text("Main Pollutant:" + " " + response.data.current.pollution.mainus)
         var PollutantInfo = $("<p>").text("Pollutant Info: p2: ugm3, (pm2.5), p1: ugm3, (pm10), o3: ppb, (Ozone O3), n2: ppb, (Nitrogen dioxide NO2)s2: ppb, (Sulfur dioxide SO2),co: ppm (Carbon monoxide CO)");
         var ForecastHead = $("<h3>").text("Weather Forecast:" + " ")
-        var WeatherForecast = $("<p>").text("Temperature:" + " " + response.data.current.weather.tp + "°C" + " " + "Humidity:" + " " + response.data.current.weather.hu + "%")
-        var AQIchart = $("<img>").html("src", "assets/images/AQI_Values.png");
+        var WeatherForecast = $("<p>").text("Temperature:" + " " + response.data.current.weather.tp + "°C" + " " + ", " + "Humidity:" + " " + response.data.current.weather.hu + "%")
+       
 
 
         $("#city-div").append(city, airQualityIndex, mainPollutant, PollutantInfo, ForecastHead, WeatherForecast)
-        $("#chart-div").append(AQIchart)
+        if (response.data.status = "success"){
+            console.log(" a city!") //need to print 404 error message
+
+        } else {
+            console.log("not a city")
+        }
 
     });
 }
@@ -67,12 +73,14 @@ $("#select-city").on("click", function (event) {
     $("#city-div").empty()
     $("#chart-div").empty()
      var city = $("#city-choice").val()
-    //var city = "san diego"
+   
     city = scrubber(city)
-    if (!city) {
-        console.log("User passed in bad input")
-    } else {
+    //if (!city) { 
+       // alert ("Not a City!")
+       // console.log("User passed in bad input")
+    //} else {
+        //}
         getAQ(city)
-    }
+        
 });
 

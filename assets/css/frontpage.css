@@ -23,14 +23,23 @@ body {
 #earthquakecard {
     background-color: #0A2299;
     color: #DDE3FD;
-    opacity: 0.6;
+    opacity: 0.9;
 }
 
 #aiqcard {
     background-color: #0A2299;
     color: #DDE3FD;
-   opacity: 0.6; 
+   opacity: 0.9; 
    font-weight: bold;
+}
+
+#city-choice {
+    width: 50%;
+    margin: 5px;
+}
+
+#select-city{
+    margin: 5px;
 }
 
 #spacecard {
@@ -39,7 +48,7 @@ body {
 }
 
 #potdcard {
-    opacity: 0.9; 
+    
     font-weight: bold;
 }
 
