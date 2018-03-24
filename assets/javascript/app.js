@@ -11,7 +11,7 @@ $(document).ready(function () {
     $("#potdcard").hide()
 
 
-$('#options').on("click", ".form-check-input", function (event) {
+$('#options').on("click", ".btn", function (event) {
     var option = $(this).attr("value")
     console.log(option)
     switch(option) {
@@ -42,6 +42,15 @@ $('#options').on("click", ".form-check-input", function (event) {
 console.log("is it visible?"+$("#spacecard").is(":visible"))
 console.log("is it hidden?"+$("#spacecard").is(":hidden"))
 });
+
+$('.btn').click(function(){
+    if($(this).hasClass('active')){
+        $(this).removeClass('active')
+    } else {
+        $(this).addClass('active')
+    }
+    });
+
 
 // save the user's profile into Firebase so we can list users,
 // use them in Security and Firebase Rules, and show profiles

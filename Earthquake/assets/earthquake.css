@@ -1,0 +1,55 @@
+#pageHeading {
+    color:#DDE3FD;
+     
+ }
+ 
+ #pageTitle {
+     font-size: 45px;
+ }
+ 
+ #fullSideBar {
+     color:#DDE3FD;
+     font-size: 24px;
+    
+ }
+ 
+ .card-header, .card-footer{
+     background-color: #0A2299 ;
+ }
+ body {
+     background-image: url(nasa-53884-unsplash.jpg)
+ }
+ 
+ #earthquakecard {
+     background-color: #0A2299;
+     color: #DDE3FD;
+     opacity: 0.6;
+ }
+ 
+ #aiqcard {
+     background-color: #0A2299;
+     color: #DDE3FD;
+    opacity: 0.6; 
+    font-weight: bold;
+ }
+ 
+ #spacecard {
+     opacity: 0.9; 
+     font-weight: bold;
+ }
+ 
+ #potdcard {
+     opacity: 0.9; 
+     font-weight: bold;
+ }
+ 
+ #opening{
+     opacity: 0.7; 
+    font-weight: bold;
+ }
+ 
+ .btn:active, .active {
+    background-color:red;
+    color: white;
+}
+ 
