@@ -50,11 +50,7 @@ function userdata(user, uid, email, photo, display) {
       var providerData = user.providerData;
       console.log(providerData)
 
-      //Trigger Function
-      console.log(currentUser)
-      if (currentUser.display.space === true) {
-        $("button[value=space]").trigger("click")
-      }
+      
 
 
       $("#username").text("Welcome! " + user.displayName);
@@ -67,6 +63,11 @@ function userdata(user, uid, email, photo, display) {
 
 
   });
+  //Trigger Function
+  console.log(currentUser)
+  if (currentUser.display.space === true) {
+    $("button[value=space]").trigger("click")
+  }
 }
 
 $('#signout').on("click", function (event) {
