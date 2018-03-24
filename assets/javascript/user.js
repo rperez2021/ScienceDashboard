@@ -9,18 +9,9 @@ var userRef = database.ref("/users/");
 var user;
 var flaguid;
 var currentUser = {
-  uid: userdata(uid),
-  email: userdata(email),
-  photo: userdata(photo),
-  name: userdata(user),
-  display: {
-    space: "",
-    earthquake: "",
-    airquality:"",
-    potd:"",
   }
-}
-console.log(currentUser)
+
+
 // database.ref("/users/").on("value", function(snapshot) {
 //   if (snapshot.child("user").exists()) {
 //     console.log("user exists");
@@ -34,6 +25,10 @@ function userdata(user, uid, email, photo, display) {
     if (user) {
       // User is signed in.
       var displayName = user.displayName;
+      currentUser.name = displayName;
+      currentUser.email = user.email;
+      currentUser.photo = user.photoURL;
+      currentUser.uid = user.uid
       flaguid = user.uid
       database.ref().child("/users/"+ user.uid).set({
         user: user.displayName,
@@ -111,3 +106,4 @@ function firebaseSave(){
 //     profile_picture : user.photoURL
 //   })
 // };
+console.log(currentUser)
