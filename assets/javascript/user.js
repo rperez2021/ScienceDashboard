@@ -38,17 +38,17 @@ function userdata(user, uid, email, photo, display) {
           photo: user.photoURL,
 
         });
-        var email = user.email;
-        console.log(email)
-        var emailVerified = user.emailVerified;
-        console.log(emailVerified)
-        var photoURL = user.photoURL;
-        console.log(photoURL)
-        var isAnonymous = user.isAnonymous;
-        var uid = user.uid;
-        console.log(uid)
-        var providerData = user.providerData;
-        console.log(providerData)
+        // var email = user.email;
+        // console.log(email)
+        // var emailVerified = user.emailVerified;
+        // console.log(emailVerified)
+        // var photoURL = user.photoURL;
+        // console.log(photoURL)
+        // var isAnonymous = user.isAnonymous;
+        // var uid = user.uid;
+        // console.log(uid)
+        // var providerData = user.providerData;
+        // console.log(providerData)
 
 
 
@@ -56,20 +56,21 @@ function userdata(user, uid, email, photo, display) {
         $("#username").text("Welcome! " + user.displayName);
         $("#userphoto").html("<img src='" + user.photoURL + "' class='rounded-circle' width='40' height='40'>");
         console.log("User " + displayName + " Is Signed In")
+        console.log("-----" + currentUser)
+        if (currentUser.display.space === true) {
+          $("button[value=space]").trigger("click")
       } else {
         $("#username").text("User is not logged in");
         console.log("User is Signed Out")
       }
 
-      return currentUser
+    
     })
     //Trigger Function
-    .then(function (currentUser) {
-      console.log(currentUser)
-      if (currentUser.display.space === true) {
-        $("button[value=space]").trigger("click")
-      }
-    })
+    
+      // console.log(currentUser)
+     
+
 
 }
 
