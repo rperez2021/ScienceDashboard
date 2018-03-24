@@ -1,5 +1,5 @@
 
-var queryURL = "http://content.guardianapis.com/search?from-date=2018-01-31&order-by=newest&production-office=us&section=science&q=science%20&api-key=8d47b853-c8aa-449b-977f-959d77e41235"
+var queryURL = "https://github.com/Rob--W/cors-anywhere/http://content.guardianapis.com/search?from-date=2018-01-31&order-by=newest&production-office=us&section=science&q=science%20&api-key=8d47b853-c8aa-449b-977f-959d77e41235"
 
 
 $.ajax({
