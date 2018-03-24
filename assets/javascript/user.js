@@ -50,6 +50,7 @@ function userdata(user, uid, email, photo, display) {
       console.log(providerData)
 
       //Trigger Function
+      console.log(currentUser)
       if (currentUser.display.space === true) {
         $("button[value=space]").trigger("click")
       }
@@ -103,4 +104,4 @@ $('#signout').on("click", function (event) {
 //     profile_picture : user.photoURL
 //   })
 // };
-console.log(currentUser)
+
