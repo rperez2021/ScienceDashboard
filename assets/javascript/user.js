@@ -15,62 +15,62 @@ var displayName;
 
 function userdata(user, uid, email, photo, display) {
   firebase.auth().onAuthStateChanged(function (user) {
-    if (user) {
-      console.log(user)
-      var displayName = user.displayName;
-      currentUser.name = user.displayName;
-      currentUser.uid = user.uid
-      database.ref("/users/" +user.uid + "/display/").once("value").then(function(snapshot){
-      currentUser.display = {}
-      if (snapshot.val() !== {}){
-      currentUser.display.space = snapshot.val().space;
-      currentUser.display.earthquake = snapshot.val().earthquake;
-      currentUser.display.airpollution = snapshot.val().airpollution;
-      currentUser.display.potd = snapshot.val().potd;
-      currentUser.display.guardian = snapshot.val().guardian;
+      if (user) {
+        console.log(user)
+        var displayName = user.displayName;
+        currentUser.name = user.displayName;
+        currentUser.uid = user.uid
+        database.ref("/users/" + user.uid + "/display/").once("value").then(function (snapshot) {
+          currentUser.display = {}
+          if (snapshot.val() !== {}) {
+            currentUser.display.space = snapshot.val().space;
+            currentUser.display.earthquake = snapshot.val().earthquake;
+            currentUser.display.airpollution = snapshot.val().airpollution;
+            currentUser.display.potd = snapshot.val().potd;
+            currentUser.display.guardian = snapshot.val().guardian;
+          }
+        })
+        // User is signed in.
+
+        database.ref().child("/users/" + user.uid + "/credentials/").set({
+          user: user.displayName,
+          email: user.email,
+          photo: user.photoURL,
+
+        });
+        var email = user.email;
+        console.log(email)
+        var emailVerified = user.emailVerified;
+        console.log(emailVerified)
+        var photoURL = user.photoURL;
+        console.log(photoURL)
+        var isAnonymous = user.isAnonymous;
+        var uid = user.uid;
+        console.log(uid)
+        var providerData = user.providerData;
+        console.log(providerData)
+
+
+
+
+        $("#username").text("Welcome! " + user.displayName);
+        $("#userphoto").html("<img src='" + user.photoURL + "' class='rounded-circle' width='40' height='40'>");
+        console.log("User " + displayName + " Is Signed In")
+      } else {
+        $("#username").text("User is not logged in");
+        console.log("User is Signed Out")
       }
-      })
-      // User is signed in.
-      
-      database.ref().child("/users/" + user.uid +"/credentials/").set({
-        user: user.displayName,
-        email: user.email,
-        photo: user.photoURL,
-        
-      });
-      var email = user.email;
-      console.log(email)
-      var emailVerified = user.emailVerified;
-      console.log(emailVerified)
-      var photoURL = user.photoURL;
-      console.log(photoURL)
-      var isAnonymous = user.isAnonymous;
-      var uid = user.uid;
-      console.log(uid)
-      var providerData = user.providerData;
-      console.log(providerData)
 
-      
+      return currentUser
+    })
+    //Trigger Function
+    .then(function (currentUser) {
+      console.log(currentUser)
+      if (currentUser.display.space === true) {
+        $("button[value=space]").trigger("click")
+      }
+    })
 
-
-      $("#username").text("Welcome! " + user.displayName);
-      $("#userphoto").html("<img src='" + user.photoURL + "' class='rounded-circle' width='40' height='40'>");
-      console.log("User " + displayName + " Is Signed In")
-    } else {
-      $("#username").text("User is not logged in");
-      console.log("User is Signed Out")
-    }
-
-
-  })
-  //Trigger Function
-  .finally(function () {
-  console.log(currentUser)
-  if (currentUser.display.space === true) {
-    $("button[value=space]").trigger("click")
-  }
-  })
-  
 }
 
 $('#signout').on("click", function (event) {
@@ -78,11 +78,11 @@ $('#signout').on("click", function (event) {
   database.ref()
     .child("/users/" + currentUser.uid + "/display/")
     .update({
-        space: ($("#spacecard").is(":visible")),
-        earthquake: ($("#earthquakecard").is(":visible")),
-        airpollution: ($("#aiqcard").is(":visible")),
-        potd: ($("#potdcard").is(":visible")),
-        guardian: ($("#guardiancard").is(":visible"))
+      space: ($("#spacecard").is(":visible")),
+      earthquake: ($("#earthquakecard").is(":visible")),
+      airpollution: ($("#aiqcard").is(":visible")),
+      potd: ($("#potdcard").is(":visible")),
+      guardian: ($("#guardiancard").is(":visible"))
     })
     .finally(function () {
       console.log('Signed Out');
@@ -110,4 +110,3 @@ $('#signout').on("click", function (event) {
 //     profile_picture : user.photoURL
 //   })
 // };
-
