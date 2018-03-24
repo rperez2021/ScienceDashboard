@@ -1,7 +1,7 @@
 firebase.database().ref("/users/").on('child_added').then(function(snapshot) {
- if (snapshot.key === flaguid) {
+
      console.log(snapshot.val())
- }
+}
 
 
 
