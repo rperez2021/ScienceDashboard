@@ -62,12 +62,15 @@ function userdata(user, uid, email, photo, display) {
     }
 
 
-  });
+  })
   //Trigger Function
+  .finally(function () {
   console.log(currentUser)
   if (currentUser.display.space === true) {
     $("button[value=space]").trigger("click")
   }
+  })
+  
 }
 
 $('#signout').on("click", function (event) {
