@@ -22,7 +22,7 @@ function userdata(user, uid, email, photo, display) {
       currentUser.name = user.displayName;
       currentUser.uid = user.uid
       currentUser.display = {}
-      if (user.display !== {}){
+      if (snapshot.val().display !== {}){
       currentUser.display.space = snapshot.val().display.space;
       currentUser.display.earthquake = snapshot.val().display.earthquake;
       currentUser.display.airpollution = snapshot.val().display.airpollution;
@@ -42,7 +42,6 @@ function userdata(user, uid, email, photo, display) {
           //   potd: $("#spacecard").toggle("false")
         }
       });
-      console.log(displayName)
       var email = user.email;
       console.log(email)
       var emailVerified = user.emailVerified;
