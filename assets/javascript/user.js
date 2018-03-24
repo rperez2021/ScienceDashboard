@@ -9,17 +9,18 @@ var userRef = database.ref("/users/");
 var user;
 var flaguid;
 var currentUser = {
-  // uid: userdata(uid),
-  // email: userdata(email),
-  // photo: userdata(photo),
-  // name: userdata(user),
-  // display: {
-  //   space: "",
-  //   earthquake: "",
-  //   airquality:"",
-  //   potd:"",
-  // }
+  uid: userdata(uid),
+  email: userdata(email),
+  photo: userdata(photo),
+  name: userdata(user),
+  display: {
+    space: "",
+    earthquake: "",
+    airquality:"",
+    potd:"",
+  }
 }
+console.log(currentUser)
 // database.ref("/users/").on("value", function(snapshot) {
 //   if (snapshot.child("user").exists()) {
 //     console.log("user exists");
