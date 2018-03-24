@@ -1,4 +1,4 @@
-firebase.database().ref("/users/").on('child_added').then(function(snapshot) {
+firebase.database().ref("/users/").on('child_added' , function(snapshot) {
 
      console.log(snapshot.val())
 });
