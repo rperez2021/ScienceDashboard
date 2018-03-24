@@ -20,6 +20,10 @@ function userdata(user, uid, email, photo, display) {
       var displayName = user.displayName;
       currentUser.name = user.displayName;
       currentUser.uid = user.uid
+      currentUser.display.space = user.display.space;
+      currentUser.dispaly.earthquake = user.display.earthquake;
+      currentUser.display.airpollution = user.display.airpollution;
+      currentUser.display.potd = user.dispaly.potd;
       database.ref().child("/users/" + user.uid).set({
         user: user.displayName,
         email: user.email,
@@ -44,6 +48,9 @@ function userdata(user, uid, email, photo, display) {
       var providerData = user.providerData;
       console.log(providerData)
 
+      if (currentUser.display.space === true);
+        $("#options").attr("space").trigger("click")
+
       $("#username").text("Welcome! " + displayName);
       $("#userphoto").html("<img src='" + photoURL + "' class='rounded-circle' width='40' height='40'>");
       console.log("User " + displayName + " Is Signed In")
@@ -59,23 +66,20 @@ function userdata(user, uid, email, photo, display) {
 $('#signout').on("click", function (event) {
   event.preventDefault()
   database.ref()
-          .child("/users/" + currentUser.uid)
-          .update(
-  {
-    display: {
-      space: ($("#spacecard").is(":visible")),
-      earthquake: ($("#earthquakecard").is(":visible")),
-      airpollution: ($("#aiqcard").is(":visible")),
-      potd: ($("#potdcard").is(":visible"))
-    }
-  })
-            .finally(function () 
-    {
+    .child("/users/" + currentUser.uid)
+    .update({
+      display: {
+        space: ($("#spacecard").is(":visible")),
+        earthquake: ($("#earthquakecard").is(":visible")),
+        airpollution: ($("#aiqcard").is(":visible")),
+        potd: ($("#potdcard").is(":visible"))
+      }
+    })
+    .finally(function () {
       console.log('Signed Out');
       firebase.auth().signOut()
     })
-
-  })
+})
 
 
 function firebaseSave() {
