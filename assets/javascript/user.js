@@ -55,9 +55,8 @@ function userdata(user, uid, email, photo, display) {
 
         $("#username").text("Welcome! " + user.displayName);
         $("#userphoto").html("<img src='" + user.photoURL + "' class='rounded-circle' width='40' height='40'>");
-        console.log("User " + displayName + " Is Signed In")
-        console.log("-----" + currentUser)
-        if (currentUser.display.space === true) {
+        console.log(currentUser)
+        if (currentUser.display.space === "true") {
           $("button[value=space]").trigger("click")
       } else {
         $("#username").text("User is not logged in");
