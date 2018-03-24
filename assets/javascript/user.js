@@ -7,6 +7,19 @@ var database = firebase.database();
 //This is not final probably jacked up
 var userRef = database.ref("/users/");
 var user;
+var flaguid;
+var currentUser = {
+  // uid: userdata(uid),
+  // email: userdata(email),
+  // photo: userdata(photo),
+  // name: userdata(user),
+  // display: {
+  //   space: "",
+  //   earthquake: "",
+  //   airquality:"",
+  //   potd:"",
+  // }
+}
 // database.ref("/users/").on("value", function(snapshot) {
 //   if (snapshot.child("user").exists()) {
 //     console.log("user exists");
@@ -15,12 +28,12 @@ var user;
 // });
 // This is part of the bad stuff
 
-function userdata() {
+function userdata(user, uid, email, photo, display) {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       // User is signed in.
       var displayName = user.displayName;
-
+      flaguid = user.uid
       database.ref().child("/users/"+ user.uid).set({
         user: user.displayName,
         email: user.email,
