@@ -22,7 +22,7 @@ function userdata() {
       // User is signed in.
       var displayName = user.displayName;
 
-      database.ref().child("/users/user" + user.uid).set({
+      database.ref().child("/users/"+ user.uid).set({
         user: user.displayName,
         email: user.email,
         photo: user.photoURL,
