@@ -36,6 +36,7 @@ function userdata(user, uid, email, photo, display) {
           $("button[value=space]").trigger("click")
             console.log("second")
         }
+      }
       })
       // User is signed in.
 
@@ -69,9 +70,9 @@ function userdata(user, uid, email, photo, display) {
         $("#username").text("User is not logged in");
         console.log("User is Signed Out")
       }
-    }
 
   })
+
   //Trigger Function
 
   // console.log(currentUser)
