@@ -1,7 +1,38 @@
+// firebase.database().ref("/users/user" + user.uid).once('value').then(function(snapshot) {
+
+
+
+
+
+//     var displayName = snapshot.user.displayName;
+
+//       database.ref().child("/users/user" + user.uid).set({
+//         user: user.displayName,
+//         email: user.email,
+//         photo: user.photoURL,
+//         display:
+//           {
+//             space: false,
+//             earthquake: false,
+//             airpollution: false,
+//             potd: false
+//           }
+//       });
+//       var email = user.email;
+//       var emailVerified = user.emailVerified;
+//       var photoURL = user.photoURL;
+//       var isAnonymous = user.isAnonymous;
+//       var uid = user.uid;
+//       var providerData = user.providerData;
+
+//   });
 
 
 var database = firebase.database();
 var userRef = database.ref("/users/");
+
+// var userId = firebase.auth().currentUser.uid;
+// var uid = user.uid;   
 
 
 $(document).ready(function () {
@@ -18,7 +49,7 @@ $('#options').on("click", ".btn", function (event) {
         case "space":
         var space = $("#spacecard").toggle("slow", function(){
             window.dispatchEvent(new Event('resize'))})
-           firebaseSave();
+        //    firebaseSave();
         break;
         case "earthquake":
         var earthquake = $("#earthquakecard").toggle("slow");
@@ -46,8 +77,7 @@ $('.btn').click(function(){
     }
     });
 
-
-
+    
 // save the user's profile into Firebase so we can list users,
 // use them in Security and Firebase Rules, and show profiles
 // function writeUserData(userId, name, email, imageUrl) {
