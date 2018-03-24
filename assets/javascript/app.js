@@ -43,6 +43,8 @@ console.log("is it visible?"+$("#spacecard").is(":visible"))
 console.log("is it hidden?"+$("#spacecard").is(":hidden"))
 });
 
+
+
 // save the user's profile into Firebase so we can list users,
 // use them in Security and Firebase Rules, and show profiles
 // function writeUserData(userId, name, email, imageUrl) {
