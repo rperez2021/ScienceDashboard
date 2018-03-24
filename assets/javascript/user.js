@@ -5,7 +5,6 @@ window.onload = function () {
 var database = firebase.database();
 
 //This is not final probably jacked up
-var database = firebase.database();
 var userRef = database.ref("/users/");
 var user;
 // database.ref("/users/").on("value", function(snapshot) {
@@ -27,12 +26,12 @@ function userdata() {
         email: user.email,
         photo: user.photoURL,
         display:
-          {
-            space: false,
-            earthquake: false,
-            airpollution: false,
-            potd: false
-          }
+          // {
+          //   space: $("#spacecard").toggle("false"),
+          //   earthquake: $("#spacecard").toggle("false"),
+          //   airpollution: $("#spacecard").toggle("false"),
+          //   potd: $("#spacecard").toggle("false")
+          // }
       });
       console.log(displayName)
       var email = user.email;
@@ -62,7 +61,7 @@ function userdata() {
 $('#signout').on("click", function (event) {
   event.preventDefault()
   firebase.auth().signOut().then(function (user) {
-    database.ref().child("/users/user" + user.uid).update({
+    database.ref().child("/users/"+ user.uid).update({
       display:
         {
           space: ($("#spacecard").is(":visible")),
@@ -80,7 +79,7 @@ $('#signout').on("click", function (event) {
 
 function firebaseSave(){
   if ($("#spacecard").toggle(":hidden")) {
-    database.ref().child("/users/user" + user.uid).update({
+    database.ref().child("/users/"+ user.uid).update({
       space: ($("#spacecard").is(":hidden")),
   }) 
   } else if 
