@@ -26,12 +26,12 @@ function userdata() {
         email: user.email,
         photo: user.photoURL,
         display:
-          // {
+          {
           //   space: $("#spacecard").toggle("false"),
           //   earthquake: $("#spacecard").toggle("false"),
           //   airpollution: $("#spacecard").toggle("false"),
           //   potd: $("#spacecard").toggle("false")
-          // }
+           }
       });
       console.log(displayName)
       var email = user.email;
