@@ -43,6 +43,7 @@ console.log("is it visible?"+$("#spacecard").is(":visible"))
 console.log("is it hidden?"+$("#spacecard").is(":hidden"))
 });
 
+
 $('.btn').click(function(){
     if($(this).hasClass('active')){
         $(this).removeClass('active')
@@ -50,6 +51,7 @@ $('.btn').click(function(){
         $(this).addClass('active')
     }
     });
+
 
 
 // save the user's profile into Firebase so we can list users,

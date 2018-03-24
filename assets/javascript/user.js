@@ -28,7 +28,7 @@ function userdata() {
         photo: user.photoURL,
         display:
           {
-            space: ($("#spacecard").is(":hidden")),
+            space: false,
             earthquake: false,
             airpollution: false,
             potd: false
@@ -54,6 +54,8 @@ function userdata() {
       $("#username").text("User is not logged in");
       console.log("User is Signed Out")
     }
+
+    
   });
 }
 
@@ -76,7 +78,13 @@ $('#signout').on("click", function (event) {
   });
 });
 
-
+function firebaseSave(){
+  if ($("#spacecard").toggle(":hidden")) {
+    database.ref().child("/users/user" + user.uid).update({
+      space: ($("#spacecard").is(":hidden")),
+  })
+  }
+}
 
 // function writeUserData(uid, displayName, email, photoURL) {
 //   firebase.database().ref('users/' + uid).set({
