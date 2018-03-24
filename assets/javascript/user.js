@@ -28,15 +28,22 @@ function userdata(user, uid, email, photo, display) {
           currentUser.display.airpollution = snapshot.val().airpollution;
           currentUser.display.potd = snapshot.val().potd;
           currentUser.display.guardian = snapshot.val().guardian;
-          if (currentUser.display.space === "true") {
+          if (currentUser.display.space) {
             $("button[value=space]").trigger("click")
-            console.log("first")
-
-        } else if (currentUser.display.space === true) {
-          $("button[value=space]").trigger("click")
-            console.log("second")
+          }
+          if (currentUser.display.earthquake) {
+            $("button[value=earthquake]").trigger("click")
+          }
+          if (currentUser.display.airpollution) {
+            $("button[value=airpollution]").trigger("click")
+          }
+          if (currentUser.display.potd) {
+            $("button[value=potd]").trigger("click")
+          }
+          if (currentUser.display.guardian) {
+            $("button[value=guardian]").trigger("click")
+          }
         }
-      }
       })
       // User is signed in.
 
@@ -66,10 +73,10 @@ function userdata(user, uid, email, photo, display) {
       console.log(currentUser)
       // if (currentUser.display.space === "true") {
       //   $("button[value=space]").trigger("click")
-      } else {
-        $("#username").text("User is not logged in");
-        console.log("User is Signed Out")
-      }
+    } else {
+      $("#username").text("User is not logged in");
+      console.log("User is Signed Out")
+    }
 
   })
 
