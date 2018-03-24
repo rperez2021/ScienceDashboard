@@ -17,12 +17,12 @@ function userdata(user, uid, email, photo, display) {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
       console.log(user)
-      database.ref("/users/" +user.uid + "/display/").once("value").then(function(snapshot){
       var displayName = user.displayName;
       currentUser.name = user.displayName;
       currentUser.uid = user.uid
+      database.ref("/users/" +user.uid + "/display/").once("value").then(function(snapshot){
       currentUser.display = {}
-      if (snapshot.val().display !== {}){
+      if (snapshot.val() !== {}){
       currentUser.display.space = snapshot.val().space;
       currentUser.display.earthquake = snapshot.val().earthquake;
       currentUser.display.airpollution = snapshot.val().airpollution;
@@ -51,7 +51,7 @@ function userdata(user, uid, email, photo, display) {
 
       //Trigger Function
       if (currentUser.display.space === true) {
-        $("#options").attr("space").trigger("click")
+        $("button[value=space]").trigger("click")
       }
 
 
