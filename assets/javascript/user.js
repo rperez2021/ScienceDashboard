@@ -9,7 +9,7 @@ var userRef = database.ref("/users/");
 var user;
 var flaguid;
 var currentUser = {}
-
+var displayName;
 
 
 
