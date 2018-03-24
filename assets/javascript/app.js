@@ -1,7 +1,7 @@
 firebase.database().ref("/users/").on('child_added').then(function(snapshot) {
 
      console.log(snapshot.val())
-}
+});
 
 
 
@@ -27,7 +27,6 @@ firebase.database().ref("/users/").on('child_added').then(function(snapshot) {
     //   var uid = user.uid;
     //   var providerData = user.providerData;
 
-  });
 
 
 var database = firebase.database();
