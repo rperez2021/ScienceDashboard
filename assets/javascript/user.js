@@ -27,6 +27,7 @@ function userdata(user, uid, email, photo, display) {
       currentUser.display.earthquake = snapshot.val().earthquake;
       currentUser.display.airpollution = snapshot.val().airpollution;
       currentUser.display.potd = snapshot.val().potd;
+      currentUser.display.guardian = snapshot.val().guardian;
       }
       })
       // User is signed in.
@@ -76,7 +77,8 @@ $('#signout').on("click", function (event) {
         space: ($("#spacecard").is(":visible")),
         earthquake: ($("#earthquakecard").is(":visible")),
         airpollution: ($("#aiqcard").is(":visible")),
-        potd: ($("#potdcard").is(":visible"))
+        potd: ($("#potdcard").is(":visible")),
+        guardian: ($("#guardiancard").is(":visible"))
     })
     .finally(function () {
       console.log('Signed Out');

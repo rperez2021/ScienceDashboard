@@ -41,6 +41,7 @@ $(document).ready(function () {
     $("#earthquakecard").hide()
     $("#aiqcard").hide()
     $("#potdcard").hide()
+    $("#guardiancard").hide()
 
 
 $('#options').on("click", ".btn", function (event) {
@@ -61,12 +62,16 @@ $('#options').on("click", ".btn", function (event) {
         case "potd":
         var potd = $("#potdcard").toggle("slow");
         break;
+        case "potd":
+        var potd = $("#potdcard").toggle("slow");
+        break;
+        case "guardian":
+        var potd = $("#guardiancard").toggle("slow");
+        break;
     }
-    console.log("is it visible?"+$("#spacecard").is(":visible"))
-    console.log("is it hidden?"+$("#spacecard").is(":hidden")) 
+
 });
-console.log("is it visible?"+$("#spacecard").is(":visible"))
-console.log("is it hidden?"+$("#spacecard").is(":hidden"))
+
 });
 
 
