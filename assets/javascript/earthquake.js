@@ -11,9 +11,7 @@ $.getJSON('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_hour.ge
         moreInfo.append("<a href = '" + data.features[i].properties.url + "'>Click here for more information</a>");
         $("#info").append(location, magnitude, tPretty, moreInfo);
 
-
-        // console.log(tPretty);
-        console.log(data.features[i]);
+    
     }
 
 });
@@ -32,8 +30,8 @@ $.getJSON('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant
         $("#info-2").append(location, magnitude, tPretty, moreInfo);
 
 
-        // console.log(tPretty);
-        console.log(data.features[i]);
+    
+    
     }
 
 });
