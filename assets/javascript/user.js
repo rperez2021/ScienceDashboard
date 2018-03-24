@@ -20,10 +20,11 @@ function userdata(user, uid, email, photo, display) {
       var displayName = user.displayName;
       currentUser.name = user.displayName;
       currentUser.uid = user.uid
+      currentUser.display = {}
       currentUser.display.space = user.display.space;
-      currentUser.dispaly.earthquake = user.display.earthquake;
+      currentUser.display.earthquake = user.display.earthquake;
       currentUser.display.airpollution = user.display.airpollution;
-      currentUser.display.potd = user.dispaly.potd;
+      currentUser.display.potd = user.display.potd;
       database.ref().child("/users/" + user.uid).set({
         user: user.displayName,
         email: user.email,
