@@ -8,20 +8,13 @@ $.ajax({
   })
   
   .then(function(response) {
-    console.log(response)
-    //console.log(response.response.results[0].webTitle)
 for (var i = 0; i < 10; i++){
     var articleTitle = $("<h3>").text(response.response.results[i].webTitle)
-    //console.log(response.response.results[i].webTitle)
     //var articleURL = $("<h4>").text(response.response.results[i].webUrl)
     var articleURL = $("<p>").text("") 
     articleURL.append("<a href = ' "+ response.response.results[i].webUrl + " '> Access Article </a>")
-    console.log(response.response.results[i].webUrl)
     var articleDate = response.response.results[i].webPublicationDate
     var datePretty = moment(articleDate).format("LLL")
-    console.log(datePretty)
-    
-    //console.log(articleDate)
 
     $("#article-div").append(articleTitle, articleURL, datePretty)
 }
