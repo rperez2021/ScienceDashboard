@@ -33,6 +33,14 @@ body {
    font-weight: bold;
 }
 
+#guardiancard {
+    background-color: #0A2299;
+    color: #DDE3FD;
+   opacity: 0.9; 
+   font-weight: bold;
+} 
+}
+
 #city-choice {
     width: 50%;
     margin: 5px;
