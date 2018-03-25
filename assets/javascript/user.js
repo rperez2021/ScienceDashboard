@@ -53,17 +53,7 @@ function userdata(user, uid, email, photo, display) {
         photo: user.photoURL,
 
       });
-      // var email = user.email;
-      // console.log(email)
-      // var emailVerified = user.emailVerified;
-      // console.log(emailVerified)
-      // var photoURL = user.photoURL;
-      // console.log(photoURL)
-      // var isAnonymous = user.isAnonymous;
-      // var uid = user.uid;
-      // console.log(uid)
-      // var providerData = user.providerData;
-      // console.log(providerData)
+
 
 
 
@@ -71,25 +61,18 @@ function userdata(user, uid, email, photo, display) {
       $("#username").text("Welcome! " + user.displayName);
       $("#userphoto").html("<img src='" + user.photoURL + "' class='rounded-circle' width='40' height='40'>");
       console.log(currentUser)
-      // if (currentUser.display.space === "true") {
-      //   $("button[value=space]").trigger("click")
     } else {
-      $("#username").text("User is not logged in");
+      $("#username").text("");
       console.log("User is Signed Out")
     }
 
   })
 
-  //Trigger Function
-
-  // console.log(currentUser)
-
-
-
 }
 
 $('#signout').on("click", function (event) {
   event.preventDefault()
+  $("#userphoto").hide();
   database.ref()
     .child("/users/" + currentUser.uid + "/display/")
     .update({
@@ -104,24 +87,3 @@ $('#signout').on("click", function (event) {
       firebase.auth().signOut()
     })
 })
-
-
-// function firebaseSave() {
-//   if ($("#spacecard").toggle(":hidden")) {
-//     database.ref().child("/users/" + user.uid).update({
-//       space: ($("#spacecard").is(":hidden")),
-//     })
-//   } else if ($("#spacecard").toggle(":visible")) {
-//     database.ref().child("/users/user" + user.uid).update({
-//       space: ($("#spacecard").is(":hidden")),
-//     })
-//   }
-// }
-
-// function writeUserData(uid, displayName, email, photoURL) {
-//   firebase.database().ref('users/' + uid).set({
-//     username: user.displayName,
-//     email: user.email,
-//     profile_picture : user.photoURL
-//   })
-// };
