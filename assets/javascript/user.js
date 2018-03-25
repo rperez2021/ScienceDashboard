@@ -16,7 +16,6 @@ var displayName;
 function userdata(user, uid, email, photo, display) {
   firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-      console.log(user)
       var displayName = user.displayName;
       currentUser.name = user.displayName;
       currentUser.uid = user.uid
@@ -60,10 +59,8 @@ function userdata(user, uid, email, photo, display) {
 
       $("#username").text("Welcome! " + user.displayName);
       $("#userphoto").html("<img src='" + user.photoURL + "' class='rounded-circle' width='40' height='40'>");
-      console.log(currentUser)
     } else {
       $("#username").text("");
-      console.log("User is Signed Out")
     }
 
   })
@@ -83,7 +80,6 @@ $('#signout').on("click", function (event) {
       guardian: ($("#guardiancard").is(":visible"))
     })
     .finally(function () {
-      console.log('Signed Out');
       firebase.auth().signOut()
     })
 })

@@ -1,6 +1,4 @@
 firebase.database().ref("/users/").on('child_added' , function(snapshot) {
-
-     console.log(snapshot.val())
 });
 
 
@@ -46,7 +44,6 @@ $(document).ready(function () {
 
 $('#options').on("click", ".btn", function (event) {
     var option = $(this).attr("value")
-    console.log(option)
     switch(option) {
         case "space":
         var space = $("#spacecard").toggle("slow", function(){
