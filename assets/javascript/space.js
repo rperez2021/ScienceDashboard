@@ -50,7 +50,7 @@ $(document).ready(function () {
                 }
             });
         });
-        setTimeout(moveISS, 10000);
+        setTimeout(moveISS, 60000);
     }
 
     moveISS();
