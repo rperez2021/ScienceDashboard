@@ -9,7 +9,7 @@ $.ajax({
   
   .then(function(response) {
 for (var i = 0; i < 10; i++){
-    var articleTitle = $("<h3>").text("<a href = ' "+ response.response.results[i].webUrl + " '>"+response.response.results[i].webTitle + "</a>")
+    var articleTitle = $("<h3>").html("<a href = ' "+ response.response.results[i].webUrl + " '>"+response.response.results[i].webTitle + "</a>")
     //var articleURL = $("<h4>").text(response.response.results[i].webUrl)
     // var articleURL = $("<p>").text("") 
     // articleURL.append("<a href = ' "+ response.response.results[i].webUrl + " '> Access Article </a>")
