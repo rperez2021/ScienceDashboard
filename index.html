@@ -15,7 +15,7 @@
         crossorigin=""></script>
     <!-- Local Leafleft CSS to Display Map -->
     <link rel="stylesheet" href="assets/css/space.css">
-    <link rel="stylesheet" href="assets/css/frontpage.css"
+    <link rel="stylesheet" href="assets/css/frontpage.css">
     <!-- FontAwesome -->
     <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/solid.js" integrity="sha384-+Ga2s7YBbhOD6nie0DzrZpJes+b2K1xkpKxTFFcx59QmVPaSA8c7pycsNaFwUK6l"
         crossorigin="anonymous"></script>
@@ -44,35 +44,22 @@
                 <div class="sidebar-sticky" id="options">
                     <ul class="nav flex-column">
                         <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="space" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Space
-                                </label>
+                            <button type="button" class="btn btn-outline-primary btn-lg" value="space">Space</button>
                         </li>
 
                         <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="earthquake" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Earthquakes
-                                </label>
+                            <button type="button" class="btn btn-outline-primary btn-lg" value="earthquake">Earthquake</button>
                         </li>
 
                         <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="airpollution" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    Air Pollution
-                                </label>
+                            <button type="button" class="btn btn-outline-primary btn-lg" value="airpollution">Air Pollution</button>
                         </li>
 
                         <li>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="potd" id="defaultCheck1">
-                                <label class="form-check-label" for="defaultCheck1">
-                                    NASA Photo of the Day
-                                </label>
+                            <button type="button" class="btn btn-outline-primary btn-lg" value="potd">NASA Photo of the Day</button>
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-outline-primary btn-lg" value="guardian">Science News Articles</button>
                         </li>
                     </ul>
                     </div>
@@ -117,6 +104,7 @@
 
                             <div class="card mb-3" id="earthquakecard">
                                 <img>
+                             
                                 <div class="card-body"> <h1>Earthquake Catalog: Most recent</h1>
 
                                     <div id ="info"></div>
@@ -130,15 +118,15 @@
                             <div class="card mb-3" id="aiqcard">
                                 <img>
                                 <div class="card-body"><!-- City Select Box -->
-                                    <form id="city-form">
+                                    <form id="city-form" >
                                   
                                       <!-- Label for Text Box -->
-                                      <label for="city-input">Check San Diego's Air Quality </label>
-                                  
-                                      <!-- Text Input Box -input type="text" id="city-input"><br>
-                                  
+                                      <h4 for="city-input" class="row" id= "city-label">Enter a California City to Check the Air Quality </h4>
+                                     <div class= "row">
+                                      <input class="form-control" type="text" value = "San Diego" id = "city-choice">
                                       <!-- Submit Button -->
-                                      <input id="select-city" type="submit" value="GO!">
+                                      <button id="select-city" type="submit" class="btn btn-outline-light">Go!</button>
+                                    </div>
                                     </form>
                                   
                                     <!-- city Information -->
@@ -146,8 +134,12 @@
                                   
                                     <!--image div-->
                                     <div id = "basicinfo-div">
-                                      <img id = "chartforAQI" src = "assets/images/AQI_Values.png" alt= "AQI Chart">
-                                      <a href="https://airnow.gov/index.cfm?action=aqi_brochure.index" title ="Visit EPA website to see Air Quality Index guide" target ="_blank">Air Quality Index Health Guide</a>
+                                        <div class="row"> 
+                                            <img id = "chartforAQI" src = "assets/images/AQI_Values.png" class="img-fluid" alt= "AQI Chart">
+                                        </div>
+                                        <div class="row mt-3"> 
+                                            <a href="https://airnow.gov/index.cfm?action=aqi_brochure.index" title ="Visit EPA website to see Air Quality Index guide" target ="_blank"  class="btn btn-outline-light">Air Quality Index Health Guide</a>
+                                        </div>
                                     </div></div>
                             </div>
 
@@ -158,7 +150,16 @@
                                 </div>
                             </div>
 
-
+                            <div class="card mb-3" id="guardiancard">
+                                <img>
+                                <div class="card-body">
+                                    <img id = "glogo" src = "assets/images/guardianlogo.png" class= "img-fluid">
+                                    <h1> The Guardian's Latest Science Articles</h1>
+                                   
+                                     <!-- article list -->
+                                     <div id="article-div"></div>
+                                </div>
+                            </div>
 
 
             </main>
@@ -184,6 +185,7 @@
             <script src="assets/javascript/user.js"></script>
             <script src="assets/javascript/earthquake.js" type="text/javascript"></script>
             <script src="assets/javascript/aqi.js"></script>
+            <script src="assets/javascript/guardian.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
                 crossorigin="anonymous"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"

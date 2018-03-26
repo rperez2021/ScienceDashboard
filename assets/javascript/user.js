@@ -1,72 +1,85 @@
-window.onload = function() {
-    userdata();
-    
-  };
-  var database = firebase.database();
+window.onload = function () {
+  userdata();
 
-  //This is not final probably jacked up
-  var database = firebase.database();
-  var userRef = database.ref("/users/");
-  var user;
-  database.ref("/users/").on("value", function(snapshot) {
-    if (snapshot.child("user").exists()) {
-      console.log("user exists");
-      user = snapshot.val().player1;
-    };
-  });
-// This is part of the bad stuff
+};
+var database = firebase.database();
 
-  function userdata(){
-  firebase.auth().onAuthStateChanged(function(user) {
+//This is not final probably jacked up
+var userRef = database.ref("/users/");
+var user;
+var flaguid;
+var currentUser = {}
+var displayName;
+
+
+
+function userdata(user, uid, email, photo, display) {
+  firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
-      // User is signed in.
       var displayName = user.displayName;
-      //This is jacked up
-      database.ref().child("/users/user"+user.uid).set({
-        user: user.displayName, 
-        email: user.email, 
-        photo: user.photoURL, 
-        space: false, 
-        earthquake: false, 
-        airpollution: false, 
-        potd: false });
-      console.log(displayName)
-      var email = user.email;
-      console.log(email)
-      var emailVerified = user.emailVerified;
-      console.log(emailVerified)
-      var photoURL = user.photoURL;
-      console.log(photoURL)
-      var isAnonymous = user.isAnonymous;
-      var uid = user.uid;
-      console.log(uid)
-      var providerData = user.providerData;
-      console.log(providerData)
+      currentUser.name = user.displayName;
+      currentUser.uid = user.uid
+      database.ref("/users/" + user.uid + "/display/").once("value").then(function (snapshot) {
+        currentUser.display = {}
+        if (snapshot.val() !== {}) {
+          currentUser.display.space = snapshot.val().space;
+          currentUser.display.earthquake = snapshot.val().earthquake;
+          currentUser.display.airpollution = snapshot.val().airpollution;
+          currentUser.display.potd = snapshot.val().potd;
+          currentUser.display.guardian = snapshot.val().guardian;
+          if (currentUser.display.space) {
+            $("button[value=space]").trigger("click")
+          }
+          if (currentUser.display.earthquake) {
+            $("button[value=earthquake]").trigger("click")
+          }
+          if (currentUser.display.airpollution) {
+            $("button[value=airpollution]").trigger("click")
+          }
+          if (currentUser.display.potd) {
+            $("button[value=potd]").trigger("click")
+          }
+          if (currentUser.display.guardian) {
+            $("button[value=guardian]").trigger("click")
+          }
+        }
+      })
+      // User is signed in.
 
-      $("#username").text("Welcome! "+ displayName);
-      $("#userphoto").html("<img src='"+photoURL+"' class='rounded-circle' width='40' height='40'>");
-      // ...
+      database.ref().child("/users/" + user.uid + "/credentials/").set({
+        user: user.displayName,
+        email: user.email,
+        photo: user.photoURL,
+
+      });
+
+
+
+
+
+      $("#username").text("Welcome! " + user.displayName);
+      $("#userphoto").html("<img src='" + user.photoURL + "' class='rounded-circle' width='40' height='40'>");
     } else {
-      $("#username").text("User is not logged in");
-    
+      $("#username").text("");
     }
-  });
+
+  })
+
 }
 
 $('#signout').on("click", function (event) {
   event.preventDefault()
-  signout()
-});
-
-function signout(){
-  firebase.auth().signOut()
-  console.log("signout fired")
-}
-
-// function writeUserData(uid, displayName, email, photoURL) {
-//   firebase.database().ref('users/' + uid).set({
-//     username: user.displayName,
-//     email: user.email,
-//     profile_picture : user.photoURL
-//   })
-// };
+  $("#userphoto").hide();
+  database.ref()
+    .child("/users/" + currentUser.uid + "/display/")
+    .update({
+      space: ($("#spacecard").is(":visible")),
+      earthquake: ($("#earthquakecard").is(":visible")),
+      airpollution: ($("#aiqcard").is(":visible")),
+      potd: ($("#potdcard").is(":visible")),
+      guardian: ($("#guardiancard").is(":visible"))
+    })
+    .finally(function () {
+      firebase.auth().signOut()
+    })
+})

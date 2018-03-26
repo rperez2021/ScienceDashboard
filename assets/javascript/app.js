@@ -1,9 +1,37 @@
+firebase.database().ref("/users/").on('child_added' , function(snapshot) {
+});
+
+
+
+
+    // var displayName = snapshot.user.displayName;
+
+    //   database.ref().child("/users/user" + user.uid).set({
+    //     user: user.displayName,
+    //     email: user.email,
+    //     photo: user.photoURL,
+    //     display:
+    //       {
+    //         space: false,
+    //         earthquake: false,
+    //         airpollution: false,
+    //         potd: false
+    //       }
+    //   });
+    //   var email = user.email;
+    //   var emailVerified = user.emailVerified;
+    //   var photoURL = user.photoURL;
+    //   var isAnonymous = user.isAnonymous;
+    //   var uid = user.uid;
+    //   var providerData = user.providerData;
+
 
 
 var database = firebase.database();
-var connectionsRef = database.ref("/connections");
-var connectedRef = database.ref(".info/connected");
-var users = database.ref("/users/");
+var userRef = database.ref("/users/");
+
+// var userId = firebase.auth().currentUser.uid;
+// var uid = user.uid;   
 
 
 $(document).ready(function () {
@@ -11,29 +39,48 @@ $(document).ready(function () {
     $("#earthquakecard").hide()
     $("#aiqcard").hide()
     $("#potdcard").hide()
+    $("#guardiancard").hide()
 
 
-$('#options').on("click", ".form-check-input", function (event) {
+$('#options').on("click", ".btn", function (event) {
     var option = $(this).attr("value")
-    console.log(option)
     switch(option) {
         case "space":
-        $("#spacecard").toggle();
+        var space = $("#spacecard").toggle("slow", function(){
+            window.dispatchEvent(new Event('resize'))})
+        //    firebaseSave();
         break;
         case "earthquake":
-        $("#earthquakecard").toggle();
+        var earthquake = $("#earthquakecard").toggle("slow");
         break;
         case "airpollution":
-        $("#aiqcard").toggle();
+        var airpollution = $("#aiqcard").toggle("slow");
         break;
         case "potd":
-        $("#potdcard").toggle();
+        var potd = $("#potdcard").toggle("slow");
+        break;
+        case "potd":
+        var potd = $("#potdcard").toggle("slow");
+        break;
+        case "guardian":
+        var potd = $("#guardiancard").toggle("slow");
         break;
     }
-    window.dispatchEvent(new Event('resize')); 
-});
+
 });
 
+});
+
+
+$('.btn').click(function(){
+    if($(this).hasClass('active')){
+        $(this).removeClass('active')
+    } else {
+        $(this).addClass('active')
+    }
+    });
+
+    
 // save the user's profile into Firebase so we can list users,
 // use them in Security and Firebase Rules, and show profiles
 // function writeUserData(userId, name, email, imageUrl) {
