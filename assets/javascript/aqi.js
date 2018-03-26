@@ -42,16 +42,15 @@ function getAQ(city) {
         var airQualityIndex = $("<h1>").text("City Air Quality Index Value:" + " " + response.data.current.pollution.aqius);
         var mainPollutant = $("<h2>").text("Main Pollutant:" + " " + response.data.current.pollution.mainus)
         var PollutantInfo = $("<p>").text("Pollutant Info: p2: ugm3, (pm2.5), p1: ugm3, (pm10), o3: ppb, (Ozone O3), n2: ppb, (Nitrogen dioxide NO2)s2: ppb, (Sulfur dioxide SO2),co: ppm (Carbon monoxide CO)");
-        var ForecastHead = $("<h3>").text("Weather Forecast:" + " ")
-        var WeatherForecast = $("<p>").text("Temperature:" + " " + response.data.current.weather.tp + "°C" + " " + ", " + "Humidity:" + " " + response.data.current.weather.hu + "%")
-       
-
+        var ForecastHead = $("<h3>").text("Today's Weather Forecast:" + " ")
+        var CelsTemp = response.data.current.weather.tp
+        var FarTemp = (CelsTemp*1.8)+32;
+        var WeatherForecast = $("<p>").text("Temperature:" + " " + CelsTemp + "°C" + ", " + " " + FarTemp + "°F"+ ", " + "Humidity:" + " " + response.data.current.weather.hu + "%")
+      
+      
 
         $("#city-div").append(city, airQualityIndex, mainPollutant, PollutantInfo, ForecastHead, WeatherForecast)
-        if (response.data.status = "success"){
-
-        } else {
-        }
+        
 
     });
 }
@@ -60,17 +59,14 @@ function getAQ(city) {
 
 
 $("#select-city").on("click", function (event) {
-    // Preventing the button from trying to submit the form
+    
     event.preventDefault();
     $("#city-div").empty()
     $("#chart-div").empty()
      var city = $("#city-choice").val()
    
     city = scrubber(city)
-    //if (!city) { 
-       // alert ("Not a City!")
-    //} else {
-        //}
+    
         getAQ(city)
         
 });
