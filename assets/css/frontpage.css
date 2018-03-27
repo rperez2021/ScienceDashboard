@@ -17,7 +17,12 @@
     background-color: #0A2299 ;
 }
 body {
-    background-image: url(../images/nasa-53884-unsplash.jpg)
+    background-image: url(../images/nasa-53884-unsplashbig.jpg);
+    height: 100%;
+    background-position: center;
+    background-attachment: fixed; 
+    background-size: cover;
+
 }
 
 #earthquakecard {
